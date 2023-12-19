@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter.ttk import Style
+from ttkthemes import ThemedTk
 import os
 import pytube
 from moviepy.editor import *
@@ -26,8 +28,13 @@ def download_audio():
     except Exception as e:
         error_label.config(text=f"Error: {e}")
 
-root = Tk()
+root = ThemedTk(theme="radiance")  # Cambia "radiance" por el nombre del tema que quieras usar
 root.title("Galactic Audio Downloader")
+
+style = Style()
+style.configure("TLabel", foreground="black", background="white", padding=10, font=('Helvetica', 16))
+style.configure("TEntry", foreground="black", background="white", padding=10, font=('Helvetica', 16))
+style.configure("TButton", foreground="black", background="white", padding=10, font=('Helvetica', 16))
 
 url_label = Label(root, text="Enter YouTube URL:")
 url_label.pack()
